@@ -24,7 +24,7 @@ function App() {
         "Containerized with Docker, automated builds using GitHub Actions, and deployed via Docker Compose"
       ],
       color: "from-blue-400 to-purple-600",
-      size: "w-32 h-32"
+      size: "w-40 h-40"
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ function App() {
         "Utilized TensorFlow, OpenCV, and YOLO for model training and object detection"
       ],
       color: "from-red-400 to-pink-600",
-      size: "w-28 h-28"
+      size: "w-36 h-36"
     },
     {
       id: 3,
@@ -52,7 +52,7 @@ function App() {
         "Built a servo-actuated sponge mechanism; patent filed for the design"
       ],
       color: "from-green-400 to-teal-600",
-      size: "w-24 h-24"
+      size: "w-32 h-32"
     },
     {
       id: 4,
@@ -66,7 +66,7 @@ function App() {
         "Real-time DB integration, secure item verification, and responsive UX"
       ],
       color: "from-yellow-400 to-orange-600",
-      size: "w-20 h-20"
+      size: "w-28 h-28"
     }
   ];
 
@@ -236,8 +236,8 @@ function App() {
           </div>
         </div>
       </section>
-
-      {/* Projects Section */}
+      
+     {/* Projects Section */}
       <section id="projects" className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -248,30 +248,28 @@ function App() {
             <p className="text-gray-300 text-lg">Click on any planet to explore the project</p>
           </div>
 
-          <div className="relative h-96 md:h-[500px]">
-            {projects.map((project, index) => (
+          <div className="relative h-[500px] w-full flex flex-wrap justify-center items-center gap-12">
+            {projects.map((project) => (
               <div
                 key={project.id}
-                className={`absolute cursor-pointer transform hover:scale-110 transition-all duration-500 ${project.size}`}
-                style={{
-                  left: `${20 + (index * 20)}%`,
-                  top: `${30 + (index % 2) * 30}%`,
-                }}
                 onClick={() => setSelectedProject(project)}
+                className={`relative cursor-pointer transform hover:scale-110 transition-transform duration-500 rounded-full ${project.size}`}
               >
-                <div className={`w-full h-full rounded-full bg-gradient-to-br ${project.color} shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center relative overflow-hidden group`}>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
-                  <div className="text-center z-10">
-                    <h3 className="font-bold text-sm md:text-base text-white mb-1">{project.title}</h3>
-                    <p className="text-xs text-white/80">{project.subtitle}</p>
+                <div className={`w-full h-full rounded-full bg-gradient-to-br ${project.color} shadow-xl flex items-center justify-center relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300 rounded-full"></div>
+                  <div className="z-10 text-center w-full px-2">
+                    <h3 className="font-bold text-base text-white truncate">{project.title}</h3>
+                    <p className="text-xs text-white/80 truncate">{project.subtitle}</p>
                   </div>
-                  <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-white/10 to-transparent"></div>
+                  <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-white/10 to-transparent rounded-full"></div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+           
 
       {/* Skills Section */}
       <section id="skills" className="py-20 relative z-10">
